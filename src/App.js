@@ -12,7 +12,7 @@ import About from "./components/pages/About";
 import Ticket from "./components/pages/Ticket";
 import Start from "./components/pages/Start";
 //import Signup from './components/Signup';
-
+import TableSelect from "./components/pages/TableSelect";
 function App() {
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<TableSelect />} />
           <Route path="/ticket" element={<Ticket />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
