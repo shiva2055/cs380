@@ -3,7 +3,7 @@ import "../css/App.css";
 import table from "../../photos/table.png";
 import "../css/Home.css";
 import { Button } from "../Button";
-import Cards from "../Cards";
+import Card from "../Card/Card.js";
 import { useNavigate } from "react-router-dom";
 //import spoon from "../../photos/";
 
@@ -58,7 +58,7 @@ const Home = () => {
         </section>
 
         <section className="card--section">
-          <Cards />
+          <Card />
         </section>
       </div>
     </>

@@ -49,7 +49,7 @@ function Navbar() {
             </li>
           </ul>
 
-          <Button buttonStyle="btn--outline">SIGN UP</Button>
+          <Button buttonStyle="btn--outline">Login</Button>
 
           {/* <div className="menu-icon" onClick={handleSumbmit}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />

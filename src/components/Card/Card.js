@@ -1,11 +1,11 @@
 import React from "react";
-import "./css/Cards.css";
+import "../css/Cards.css";
 import CardItems from "./CardItems";
-import tables from "../photos/tables.jpg";
-import backup from "../photos/backup.jpg";
-import hardware from "../photos/hardware.jpg";
+import tables from "../../photos/tables.jpg";
+import backup from "../../photos/backup.jpg";
+import hardware from "../../photos/hardware.jpg";
 
-function Cards() {
+function Card() {
   return (
     <div className="cards">
       <h1>Services we offer</h1>
@@ -19,13 +19,13 @@ function Cards() {
             />
             <CardItems
               src={backup}
-              title="Backups and Recovery"
-              text="Your data is important to you. We offer backup and recovery solutions for your home and small business to ensure it stays in one piece."
+              title="Some Services"
+              text="------------------------------------------------------------------------------------------"
             />
             <CardItems
               src={hardware}
-              title="Harware installations"
-              text="If you need new hardware, or are planning on upgrading existing hardware, you've come to the right place. Whether it's a new printer, a part, or a custom PC, AaronTech is at your service."
+              title="Some Services"
+              text="------------------------------------------------------------------------------------------"
             />
           </ul>
         </div>
@@ -33,5 +33,4 @@ function Cards() {
     </div>
   );
 }
-
-export default Cards;
+export default Card;

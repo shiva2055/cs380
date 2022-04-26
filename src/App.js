@@ -11,8 +11,10 @@ import Account from "./components/pages/Account";
 import About from "./components/pages/About";
 import Ticket from "./components/pages/Ticket";
 import Start from "./components/pages/Start";
-//import Signup from './components/Signup';
 import TableSelect from "./components/pages/TableSelect";
+import Confirmation from "./components/pages/Confirmation";
+//import Signup from './components/Signup';
+
 function App() {
   return (
     <>
@@ -20,8 +22,13 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<TableSelect />} />
+          <Route path="/about" element={<About />} />
           <Route path="/ticket" element={<Ticket />} />
+          <Route path="/start/tableSelect" element={<TableSelect />} />
+          <Route
+            path="/start/tableSelect/confirmation"
+            element={<Confirmation />}
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
