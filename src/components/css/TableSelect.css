@@ -29,20 +29,20 @@
     display:flex;
 }
 
-.row--4seats{
+.row--1{
     display:flex;
     padding-left:10px;
     padding-top:10px;
     padding-bottom:40px;
 }
 
-.row--6seats{
+.row--2{
     display:flex;
     padding-left:5rem;
     padding-right:30px;
 }
 
-.row--12seats{
+.row--3{
     display:flex;
     padding-left:5rem;
 
