@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap");
+
+.About {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.404), rgba(0, 0, 0, 0.404)),
+    url("../../photos/about.jpg") no-repeat center / cover;
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+.p1 {
+  font-family: "Robot Mono";
+  font-size: 18px;
+}
+
+.info {
+  width: 90%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.About .info p1 {
+  font-size: 5rem;
+  max-width: 60%;
+  margin-bottom: 2rem;
+}
+
+.About .info button {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 1.8rem;
+  padding: 0.5em, 2em;
+  transition: all 0.3s ease-out;
+  transition: 250ms;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
