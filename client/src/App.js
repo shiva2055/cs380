@@ -7,7 +7,7 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Contact from "./components/pages/Contact";
 import Signup from "./components/pages/Signup";
-import Account from "./components/pages/Account";
+import Account from "./components/pages/Account/Account";
 import About from "./components/pages/About";
 import Ticket from "./components/pages/Ticket";
 import Start from "./components/pages/Start";

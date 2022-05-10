@@ -4,7 +4,7 @@ import '../../css/Account.css';
 import Group from './Group'
 import EditableUserProfile from './EditableUserProfile';
 import UserProfile from './UserProfile.js';
-import { Grid, Button, Menu, MenuItem, withStyles } from "@material-ui/core";
+import { Button, Menu, MenuItem, withStyles } from "@material-ui/core";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link, useNavigate } from "react-router-dom";
 

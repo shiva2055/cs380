@@ -14,12 +14,12 @@ export default function EditableUserProfile({
 
     const [firstName, setFirstName] = useState(stored.firstName);
     const [lastName, setLastName] = useState(stored.lastName);
-    const [email, setEmail] = useState(stored.Email);
+    const [email, setEmail] = useState(stored.email);
     const [phone, setPhone] = useState(stored.phone);
     const [street, setStreet] = useState(stored.street);
-    const [city, setCity] = useState(stored.City);
-    const [zipCode, setZipCode] = useState(stored.ZipCode)
-    const [state, setState] = useState(stored.State);
+    const [city, setCity] = useState(stored.city);
+    const [zipCode, setZipCode] = useState(stored.zipCode)
+    const [state, setState] = useState(stored.state);
 
     function handleCancelClicked() {
         editCompleteCallback(null);
@@ -78,7 +78,7 @@ export default function EditableUserProfile({
               label="First Name*" 
               variant="filled" 
               size="small"
-              type={Text}
+              type="text"
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
             />
@@ -92,7 +92,7 @@ export default function EditableUserProfile({
               label="Last Name*" 
               variant="filled" 
               size="small"
-              type={Text}
+              type="text"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
               />
@@ -112,7 +112,7 @@ export default function EditableUserProfile({
               label="Email*" 
               variant="filled" 
               size="small"
-              type={Text}
+              type="text"
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
@@ -130,8 +130,8 @@ export default function EditableUserProfile({
               label="Phone*" 
               variant="filled" 
               size="small"
-              type={Text}
-              value={email}
+              type="text"
+              value={phone}
               onChange={e => setPhone(e.target.value)}
             />
           </FormControl>
@@ -150,7 +150,7 @@ export default function EditableUserProfile({
               label="Street*" 
               variant="filled" 
               size="small"
-              type={Text}
+              type="text"
               value={street}
               onChange={e => setStreet(e.target.value)}
             />
@@ -163,7 +163,7 @@ export default function EditableUserProfile({
             label="City*" 
             variant="filled" 
             size="small"
-            type={Text}
+            type="text"
             value={city}
             onChange={e => setCity(e.target.value)}
           />
