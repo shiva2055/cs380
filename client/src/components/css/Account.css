@@ -1,0 +1,42 @@
+div.info {
+    background-color:#e2f0f3;
+    opacity: 89%;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 5%;
+    padding-top: .5cm;
+    padding-bottom: .5cm;
+    padding-left: 1cm;
+    padding-right: 1cm;
+    direction: column;
+}
+
+div.box {
+    height: 100%;
+    display: grid;
+}
+  
+div.App {
+    background-color:#e2f0f3;
+    opacity: 89%;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 2em 1em;
+    margin: auto;
+    width: 400px;
+    margin-top: 5%;
+    padding-top: .5cm;
+    padding-bottom: .5cm;
+    direction: column;
+    border-radius: 1em;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.205);
+}
+  
+div.group {
+    vertical-align: middle;
+    margin: 0.5em;
+    height: 32px;
+}
