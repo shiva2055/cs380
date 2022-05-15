@@ -1,7 +1,7 @@
 import React from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
-import Group from './Group'
+import Stack from '@mui/material/Stack'
 import { Button, withStyles, Paper, Grid} from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -71,10 +71,20 @@ export default function EditableUserProfile({
 
       <br />
       
-      <Grid>
-          <StyledButton onClick={startEditCallback}>
-            Edit
-          </StyledButton>
+      <Grid container direction="column" item align="center">
+        <Grid
+          item
+          container
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Stack spacing={2} direction="row">
+            <StyledButton onClick={startEditCallback}>
+              Edit
+            </StyledButton>
+          </Stack>
+        </Grid>
       </Grid>
   </div>
 }

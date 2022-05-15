@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
-import Group from './Group'
 import Stack from '@mui/material/Stack'
 import { TextField, Grid, Button, FormControl, withStyles } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,8 +42,6 @@ export default function EditableUserProfile({
     const StyledButton = withStyles({
       root: {
         display: "block",
-        marginLeft: "400px",
-        marginRight: "400px",
         alignItems: "center",
         justifyContent: "center",
         padding: "20px",
@@ -72,7 +69,7 @@ export default function EditableUserProfile({
           <h3>Name:</h3>
         </Grid>
         
-        <Grid item xs={2.5} sm={3} md={4} lg={4} xl={4}>
+        <Grid item xs={3} sm={3} md={4} lg={4} xl={4}>
           <FormControl fullWidth sx={{ m: 1 }}>
             <TextField
               id="filled-required" 
@@ -86,7 +83,7 @@ export default function EditableUserProfile({
           </FormControl>
         </Grid>
         
-        <Grid item xs={2.5} sm={3} md={4} lg={4} xl={4}>
+        <Grid item xs={3} sm={3} md={4} lg={4} xl={4}>
           <FormControl fullWidth sx={{ m: 1 }}>
             <TextField 
               id="filled-required"
@@ -106,7 +103,7 @@ export default function EditableUserProfile({
           <h3>Email:</h3>
         </Grid>
 
-        <Grid item xs={2.5} sm={3} md={4} lg={4} xl={4}>
+        <Grid item xs={3} sm={3} md={4} lg={4} xl={4}>
           <FormControl fullWidth sx={{ m: 1 }}>
             <TextField
               id="filled-required" 
@@ -124,7 +121,7 @@ export default function EditableUserProfile({
           <h3>Phone:</h3>
         </Grid>
 
-        <Grid item xs={2.5} sm={3} md={3} lg={3.5} xl={3.5}>
+        <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
           <FormControl fullWidth sx={{ m: 1 }}>
             <TextField
               id="filled-required"
@@ -144,7 +141,7 @@ export default function EditableUserProfile({
           <h3>Address:</h3>
         </Grid>
 
-        <Grid item xs={2.5} sm={3} md={4} lg={4} xl={4}>
+        <Grid item xs={3} sm={3} md={4} lg={4} xl={4}>
           <FormControl fullWidth sx={{ m: 1 }}>
             <TextField
               id="filled-required"
@@ -158,7 +155,7 @@ export default function EditableUserProfile({
           </FormControl>
         </Grid>
 
-        <Grid item xs={2.5} sm={3} md={3.5} lg={3.5} xl={3.5}>
+        <Grid item xs={2} sm={2} md={3} lg={3} xl={3}>
           <TextField
             id="filled-required"
             label="City*" 
@@ -170,7 +167,7 @@ export default function EditableUserProfile({
           />
         </Grid>
 
-        <Grid item xs={1} sm={1.5} md={2} lg={2} xl={2}> 
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}> 
           <TextField
             id="filled-required"
             label="Zip Code*" 
@@ -182,7 +179,7 @@ export default function EditableUserProfile({
           />
         </Grid>
 
-        <Grid item xs={1} sm={1.5} md={2} lg={2} xl={2}> 
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}> 
           <TextField
             id="filled-required"
             label="State*" 
@@ -197,16 +194,15 @@ export default function EditableUserProfile({
       
       <br />
       
-      <Grid container direction="column" item xs={4} align="center">
+      <Grid container direction="column" item align="center">
         <Grid
-          Grid
           item
           container
           direction="row"
           alignItems="center"
           justifyContent="center"
         >
-          <Stack spacing={10} direction="row">
+          <Stack spacing={2} direction="row">
             <StyledButton onClick={handleSaveClicked}>Save</StyledButton>
             <StyledButton onClick={handleCancelClicked}>Cancel</StyledButton>
           </Stack>

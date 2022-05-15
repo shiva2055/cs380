@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
-import Group from './Group'
 import EditableUserProfile from './EditableUserProfile';
 import UserProfile from './UserProfile.js';
 import Stack from '@mui/material/Stack';
@@ -61,8 +60,7 @@ function Account() {
   const StyledButton = withStyles({
     root: {
       display: "block",
-      marginLeft: "400px",
-      marginRight: "400px",
+
       alignItems: "center",
       justifyContent: "center",
       padding: "20px",
@@ -91,22 +89,32 @@ function Account() {
 
       <div className="box">
         <div className="App">
-          <Grid>
-              <PopupState variant="popover" popupId="demo-popup-menu">
-                {(popupState) => (
-                  <React.Fragment>
-                    <StyledButton variant="contained" {...bindTrigger(popupState)}>
-                      Account
-                    </StyledButton>
-                    <Menu {...bindMenu(popupState)}>
-                      <MenuItem onClick={popupState.close}>Profile</MenuItem>
-                      <MenuItem onClick={popupState.close}>Reservations</MenuItem>
-                      <MenuItem onClick={popupState.close}>Billing</MenuItem>
-                    </Menu>
-                  </React.Fragment>
-                )}
-              </PopupState>
+          <Grid container direction="column" item align="center">
+            <Grid
+              item
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Stack spacing={2} direction="row">
+                <PopupState variant="popover" popupId="demo-popup-menu">
+                  {(popupState) => (
+                    <React.Fragment>
+                      <StyledButton variant="contained" {...bindTrigger(popupState)}>
+                        Account
+                      </StyledButton>
+                        <Menu {...bindMenu(popupState)}>
+                          <MenuItem onClick={popupState.close}>Profile</MenuItem>
+                          <MenuItem onClick={popupState.close}>Reservations</MenuItem>
+                          <MenuItem onClick={popupState.close}>Billing</MenuItem>
+                        </Menu>
+                    </React.Fragment>
+                  )}
+                </PopupState>
+              </Stack>
             </Grid>
+          </Grid>
           
           <br /> 
           
