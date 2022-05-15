@@ -2,7 +2,7 @@ import React from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
 import Group from './Group'
-import { Button, withStyles, Paper} from "@material-ui/core";
+import { Button, withStyles, Paper, Grid} from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function EditableUserProfile({
@@ -39,42 +39,42 @@ export default function EditableUserProfile({
     })(Button);
 
     return <div>
-        <Group>
+        <Grid>
           <Paper>
             <h3>Name:</h3>
-            <h3>{stored.name}</h3>
+            <h3>{stored.firstName} {stored.lastName}</h3>
           </Paper>
-        </Group>
+        </Grid>
         <br />
-        <Group>
+        <Grid>
           <Paper>
             <h3>Email:</h3>
             <h3>{stored.email}</h3>
           </Paper>
-        </Group>
+        </Grid>
         <br />
-        <Group>
+        <Grid>
           <Paper>
             <h3>Phone:</h3>
             <h3>{stored.phone}</h3>
           </Paper>
-        </Group>
+        </Grid>
         <br />
-        <Group>
+        <Grid>
           <Paper>
             <h3>Address:</h3>
-            <h3>{stored.addressLine1}</h3>
-            <h3>{stored.addressLine2}</h3>
-            <h3>{stored.addressLine3}</h3>
+            <h3>{stored.street} {stored.unit}</h3>
+            <h3>{stored.city}, {stored.state}</h3>
+            <h3>{stored.zipCode}</h3>
           </Paper>
-        </Group>
+        </Grid>
 
       <br />
       
-      <Group>
+      <Grid>
           <StyledButton onClick={startEditCallback}>
             Edit
           </StyledButton>
-      </Group>
+      </Grid>
   </div>
 }

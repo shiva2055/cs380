@@ -4,7 +4,8 @@ import '../../css/Account.css';
 import Group from './Group'
 import EditableUserProfile from './EditableUserProfile';
 import UserProfile from './UserProfile.js';
-import { Button, Menu, MenuItem, withStyles } from "@material-ui/core";
+import Stack from '@mui/material/Stack';
+import { Button, Menu, MenuItem, withStyles, Grid } from "@material-ui/core";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link, useNavigate } from "react-router-dom";
 
@@ -12,7 +13,6 @@ function Account() {
   
   const defaultFirstName = "Katherine";
   const defaultLastName = "Reynolds";
-  const defaultName = defaultFirstName + " " + defaultLastName;
   const defaultEmail = "ReynoldsK@cwu.edu";
   const defaultPhone = "509-895-4301";
   const defaultStreet = "400 E. University Way";
@@ -20,39 +20,27 @@ function Account() {
   const defaultCity = "Ellensburg";
   const defaultZipCode = "98926";
   const defaultState = "WA";
-  const defaultAddressLine1 = defaultStreet + " " + defaultUnit;
-  const defaultAddressLine2 = defaultCity + ", " + defaultState;
-  const defaultAddressLine3 = defaultZipCode;
   
   const [editMode, setEditMode] = useState(false);
 
   const [firstName, setFirstName] = useState(defaultFirstName);
   const [lastName, setLastName] = useState(defaultLastName);
-  const [name, setName] = useState(defaultName)
   const [email, setEmail] = useState(defaultEmail);
   const [phone, setPhone] = useState(defaultPhone);
   const [street, setStreet] = useState(defaultStreet);
   const [city, setCity] = useState(defaultCity);
   const [zipCode, setZipCode] = useState(defaultZipCode)
   const [state, setState] = useState(defaultState);
-  const [addressLine1, setAddressLine1] = useState(defaultAddressLine1);
-  const [addressLine2, setAddressLine2] = useState(defaultAddressLine2);
-  const [addressLine3, setAddressLine3] = useState(defaultAddressLine3);
-
   
   const stored = {
     firstName, 
     lastName,
-    name, 
     email, 
     phone,
     street,
     city,
     zipCode,
     state,
-    addressLine1,
-    addressLine2,
-    addressLine3
   }
 
   function handleEditComplete(result) {
@@ -60,16 +48,12 @@ function Account() {
     if (result != null) {
         setFirstName(result.firstName);
         setLastName(result.lastName);
-        setName(result.Name);
         setEmail(result.email);
         setPhone(result.phone);
         setStreet(result.street);
         setCity(result.city);
         setZipCode(result.zipCode);
         setState(result.state);
-        setAddressLine1(result.addressLine1);
-        setAddressLine2(result.addressLine2);
-        setAddressLine3(result.addressLine3);
     }
     setEditMode(false);
   }
@@ -107,7 +91,7 @@ function Account() {
 
       <div className="box">
         <div className="App">
-          <Group>
+          <Grid>
               <PopupState variant="popover" popupId="demo-popup-menu">
                 {(popupState) => (
                   <React.Fragment>
@@ -122,7 +106,7 @@ function Account() {
                   </React.Fragment>
                 )}
               </PopupState>
-            </Group>
+            </Grid>
           
           <br /> 
           

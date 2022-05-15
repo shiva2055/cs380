@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
 import Group from './Group'
+import Stack from '@mui/material/Stack'
 import { TextField, Grid, Button, FormControl, withStyles } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -196,9 +197,20 @@ export default function EditableUserProfile({
       
       <br />
       
-      <Group>
-          <StyledButton onClick={handleSaveClicked}>Save</StyledButton>
-          <StyledButton onClick={handleCancelClicked}>Cancel</StyledButton>
-      </Group>
+      <Grid container direction="column" item xs={4} align="center">
+        <Grid
+          Grid
+          item
+          container
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Stack spacing={10} direction="row">
+            <StyledButton onClick={handleSaveClicked}>Save</StyledButton>
+            <StyledButton onClick={handleCancelClicked}>Cancel</StyledButton>
+          </Stack>
+        </Grid>
+      </Grid>
     </>
 }
