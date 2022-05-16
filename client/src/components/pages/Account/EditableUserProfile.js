@@ -4,6 +4,7 @@ import '../../css/Account.css';
 import { TextField, Grid, Button, FormControl, withStyles  } from "@material-ui/core";
 import {Stack, InputLabel, MenuItem, Select} from '@mui/material'
 import { Link, useNavigate } from "react-router-dom";
+import { textAlign } from "@mui/system";
 
 
 export default function EditableUserProfile({
@@ -18,6 +19,8 @@ export default function EditableUserProfile({
     const [email, setEmail] = useState(stored.email);
     const [phone, setPhone] = useState(stored.phone);
     const [street, setStreet] = useState(stored.street);
+    const [unit, setUnit] = useState(stored.unit);
+    const [unitNum, setUnitNum] = useState(stored.unitNum);
     const [city, setCity] = useState(stored.city);
     const [zipCode, setZipCode] = useState(stored.zipCode)
     const [state, setState] = useState(stored.state);
@@ -33,7 +36,9 @@ export default function EditableUserProfile({
             lastName, 
             email, 
             phone, 
-            street, 
+            street,
+            unit,
+            unitNum, 
             city,
             zipCode,
             state,
@@ -137,7 +142,7 @@ export default function EditableUserProfile({
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} columns={12}>
+      <Grid container spacing={2}>
         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}> 
           <h3>Address:</h3>
         </Grid>
@@ -156,9 +161,55 @@ export default function EditableUserProfile({
           </FormControl>
         </Grid>
 
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <TextField
+              labelId="demo-simple-select-filled-label"
+              id="demo-simple-select-filled"
+              label="Unit"
+              variant="filled"
+              size="small"
+              inputProps={{
+                style: { textAlign: "right" }
+              }}
+              fullWidth
+              select
+              value={unit}
+              onChange={e => setUnit(e.target.value)}
+            >
+              <MenuItem value=""><em>Select</em></MenuItem>
+              <MenuItem value="Unit">Unit</MenuItem>
+              <MenuItem value="Apt.">Apartment</MenuItem>
+              <MenuItem value="P.O. Box">P.O. Box</MenuItem>
+            </TextField>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <TextField
+              id="filled-required"
+              label="Number" 
+              variant="filled" 
+              size="small"
+              type="text"
+              value={unitNum}
+              onChange={e => setUnitNum(e.target.value)}
+            />
+          </FormControl>
+        </Grid>
+      </Grid>
+
+
+
+      <Grid container spacing={2}>
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}> 
+          <h3></h3>
+        </Grid>
+        
         <Grid item xs={2} sm={2} md={3} lg={3} xl={3}>
           <TextField
-            id="filled-required"
+            id="filled"
             label="City*" 
             variant="filled" 
             size="small"
@@ -180,15 +231,17 @@ export default function EditableUserProfile({
           />
         </Grid>
 
-        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}> 
-          <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }} size="small">
-            <InputLabel id="demo-simple-select-filled-label">State</InputLabel>
-            <Select
+        <Grid item> 
+          <FormControl>
+            <TextField
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
+              label="State*"
+              variant="filled"
               size="small"
+              select
+              fullWidth
               value={state}
-              label="State"
               onChange={e => setState(e.target.value)}
             >
               <MenuItem value=""><em>Select</em></MenuItem>
@@ -242,7 +295,7 @@ export default function EditableUserProfile({
               <MenuItem value={"WV"}>West Virginia</MenuItem>
               <MenuItem value={"WI"}>Wisconsin</MenuItem>
               <MenuItem value={"WY"}>Wyoming</MenuItem>
-            </Select>
+            </TextField>
           </FormControl>
         </Grid>
       </Grid>

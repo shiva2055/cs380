@@ -63,7 +63,7 @@ export default function EditableUserProfile({
         <Grid>
           <Paper>
             <h3>Address:</h3>
-            <h3>{stored.street} {stored.unit}</h3>
+            <h3>{stored.street} {stored.unit} {stored.unitNum}</h3>
             <h3>{stored.city}, {stored.state}</h3>
             <h3>{stored.zipCode}</h3>
           </Paper>

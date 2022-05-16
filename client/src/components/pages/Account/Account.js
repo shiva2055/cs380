@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack';
 import { Button, Menu, MenuItem, withStyles, Grid } from "@material-ui/core";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link, useNavigate } from "react-router-dom";
+import { getSkeletonUtilityClass } from "@mui/material";
 
 function Account() {
   
@@ -16,6 +17,7 @@ function Account() {
   const defaultPhone = "509-895-4301";
   const defaultStreet = "400 E. University Way";
   const defaultUnit = "";
+  const defaultUnitNum = "";
   const defaultCity = "Ellensburg";
   const defaultZipCode = "98926";
   const defaultState = "WA";
@@ -27,6 +29,8 @@ function Account() {
   const [email, setEmail] = useState(defaultEmail);
   const [phone, setPhone] = useState(defaultPhone);
   const [street, setStreet] = useState(defaultStreet);
+  const [unit, setUnit] = useState(defaultUnit);
+  const [unitNum, setUnitNum] = useState(defaultUnitNum);
   const [city, setCity] = useState(defaultCity);
   const [zipCode, setZipCode] = useState(defaultZipCode)
   const [state, setState] = useState(defaultState);
@@ -37,6 +41,8 @@ function Account() {
     email, 
     phone,
     street,
+    unit,
+    unitNum,
     city,
     zipCode,
     state,
@@ -50,6 +56,8 @@ function Account() {
         setEmail(result.email);
         setPhone(result.phone);
         setStreet(result.street);
+        setUnit(result.unit);
+        setUnitNum(result.unitNum);
         setCity(result.city);
         setZipCode(result.zipCode);
         setState(result.state);
