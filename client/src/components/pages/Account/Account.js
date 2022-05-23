@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
+import Reservations from "./Reservations";
+import Billing from "./Billing";
 import EditableUserProfile from './EditableUserProfile';
 import UserProfile from './UserProfile.js';
 import Stack from '@mui/material/Stack';
@@ -8,6 +10,30 @@ import { Button, Menu, MenuItem, withStyles, Grid } from "@material-ui/core";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link, useNavigate } from "react-router-dom";
 import { getSkeletonUtilityClass } from "@mui/material";
+
+const StyledButton = withStyles({
+  root: {
+    display: "block",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "20px",
+    fontSize: "20px",
+    width: "2in",
+    borderRadius: "20px",
+    cursor: "pointer",
+    flexGrow: 1,
+    background: "#232e3a",
+    color: "#fff",
+    transform: "none",
+    transition: "background .3s,border-color .3s,color .3s",
+    "&:hover": {
+      backgroundColor: "#4fa9ba",
+    },
+  },
+  label: {
+    textTransform: "capitalize",
+  },
+})(Button);
 
 function Account() {
   
@@ -23,6 +49,9 @@ function Account() {
   const defaultState = "WA";
   
   const [editMode, setEditMode] = useState(false);
+  const [profileState, setProfileState] = useState(false)
+  const [reservationState, setReservationState] = useState(false)
+  const [billingState, setBillingState] = useState(false)
 
   const [firstName, setFirstName] = useState(defaultFirstName);
   const [lastName, setLastName] = useState(defaultLastName);
@@ -65,30 +94,23 @@ function Account() {
     setEditMode(false);
   }
 
-  const StyledButton = withStyles({
-    root: {
-      display: "block",
+  function profileHandler() {
+    return (
+      <UserProfile />
+    )
+  }
+  
+  function reservationHandler() {
+    return (
+      <Reservations />
+    )
+  }
 
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "20px",
-      fontSize: "20px",
-      width: "2in",
-      borderRadius: "20px",
-      cursor: "pointer",
-      flexGrow: 1,
-      background: "#232e3a",
-      color: "#fff",
-      transform: "none",
-      transition: "background .3s,border-color .3s,color .3s",
-      "&:hover": {
-        backgroundColor: "#4fa9ba",
-      },
-    },
-    label: {
-      textTransform: "capitalize",
-    },
-  })(Button);
+  function billingHandler() {
+    return (
+      <Billing />
+    )
+  }
   
   return (
     <div className="Home">
@@ -113,9 +135,9 @@ function Account() {
                         Account
                       </StyledButton>
                         <Menu {...bindMenu(popupState)}>
-                          <MenuItem onClick={popupState.close}>Profile</MenuItem>
-                          <MenuItem onClick={popupState.close}>Reservations</MenuItem>
-                          <MenuItem onClick={popupState.close}>Billing</MenuItem>
+                          <MenuItem onClick={profileHandler}>Profile</MenuItem>
+                          <MenuItem onClick={reservationHandler}>Reservations</MenuItem>
+                          <MenuItem onClick={billingHandler}>Billing</MenuItem>
                         </Menu>
                     </React.Fragment>
                   )}
