@@ -3,32 +3,7 @@ import '../../css/Home.css';
 import '../../css/Account.css';
 import EditableUserProfile from './EditableUserProfile';
 import UserProfile from './UserProfile.js';
-import { Button, withStyles} from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
-
-const StyledButton = withStyles({
-  root: {
-    display: "block",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-    fontSize: "20px",
-    width: "2in",
-    borderRadius: "20px",
-    cursor: "pointer",
-    flexGrow: 1,
-    background: "#232e3a",
-    color: "#fff",
-    transform: "none",
-    transition: "background .3s,border-color .3s,color .3s",
-    "&:hover": {
-      backgroundColor: "#4fa9ba",
-    },
-  },
-  label: {
-    textTransform: "capitalize",
-  },
-})(Button);
 
 export default function Profile() {
   
@@ -44,7 +19,6 @@ export default function Profile() {
   const defaultState = "WA";
   
   const [editMode, setEditMode] = useState(false);
-  const [myAccount, setMyAccount] = useState('');
 
   const [firstName, setFirstName] = useState(defaultFirstName);
   const [lastName, setLastName] = useState(defaultLastName);
