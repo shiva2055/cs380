@@ -3,6 +3,7 @@ import { Button } from "@material-ui/core";
 import login_icon from "../../photos/icon.png";
 import { renderMatches, useNavigate } from "react-router";
 import React, { Component } from "react";
+
 const StyledButton = withStyles({
   root: {
     display: "block",
@@ -20,9 +21,6 @@ const StyledButton = withStyles({
     fontFamily: "Roboto",
     cursor: "pointer",
     flexGrow: 1,
-    "&:hover": {
-      color: "#4f25c8",
-    },
     //  ['@media (max-width:780px)']: {
     // paddingBottom: "1rem"    },
     background: "#232e3a", //"#4f25f7",
@@ -31,7 +29,7 @@ const StyledButton = withStyles({
     boxShadow: "6px 6px 0 0 #c7d8ed",
     transition: "background .3s,border-color .3s,color .3s",
     "&:hover": {
-      backgroundColor: "#4f25f7",
+      backgroundColor: "#4fa9ba",
     },
   },
   label: {
@@ -64,26 +62,29 @@ const style = makeStyles({
 });
 
 function Login() {
+  
   const classes = style();
   const history = useNavigate();
+  
   function handleSumbmit() {
-    const NAME = document.getElementById("name").value;
+    const EMAIL = document.getElementById("email").value;
     // alert(name);
-    sessionStorage.setItem("NAME", NAME);
-    console.log(sessionStorage.getItem("NAME"));
+    sessionStorage.setItem("EMAIL", EMAIL);
+    console.log(sessionStorage.getItem("EMAIL"));
     history("/account");
   }
+  
   return (
     <div className="Home">
       <br /> <br />
-      <h1 className={classes.wrapper}> Login</h1>
+      <h2 className={classes.wrapper}> Login</h2>
       <img className={classes.image} src={login_icon} alt="Login Image"></img>
       <br />
       <input
         className={classes.textfield}
         type="text"
-        id="name"
-        placeholder="User Name"
+        id="email"
+        placeholder="Email"
       ></input>
       <br />
       <input
@@ -95,8 +96,7 @@ function Login() {
       <br />
       <StyledButton onClick={handleSumbmit}> Submit </StyledButton>
       <br />
-      <br />
-      <h3 className={classes.wrapper}> OR </h3>
+      <h2 className={classes.wrapper}> OR </h2>
       <br />
       <StyledButton
         onClick={() => {

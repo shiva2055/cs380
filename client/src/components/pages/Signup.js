@@ -20,7 +20,7 @@ const StyledButton = withStyles({
     cursor: "pointer",
     flexGrow: 1,
     "&:hover": {
-      color: "#4f25c8",
+      backgroundColor: "#4fa9ba",
     },
     background: "#232e3a",
     color: "#fff",
@@ -65,15 +65,9 @@ function Signup() {
 
   return (
     <div className="Home">
-      <h1 className={classes.wrapper}>Create An Account </h1>
+      <br /> <br />
+      <h2 className={classes.wrapper}>Create An Account </h2>
       <img className={classes.image} src={account} alt="lado" />
-      <br />
-      <input
-        className={classes.textfield}
-        type="text"
-        id="myText"
-        placeholder="User Name"
-      ></input>
       <br />
       <input
         className={classes.textfield}
@@ -98,7 +92,7 @@ function Signup() {
       <br />
       <StyledButton
         onClick={() => {
-          history("/ticket");
+          history("/Account");
         }}
       >
         Submit{" "}

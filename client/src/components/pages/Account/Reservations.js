@@ -39,33 +39,33 @@ function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
   export default function BasicTable() {
     return (
         <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <TableCell><h3>Order #</h3></TableCell>
-              <TableCell align="right"><h3>Date Placed</h3></TableCell>
-              <TableCell align="right"><h3>Reservation Date</h3></TableCell>
-              <TableCell align="right"><h3>Restaraunt</h3></TableCell>
-              <TableCell align="right"><h3>Party Size</h3></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow
-                key={row.orderNum}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <StyledTableCell component="th" scope="row">
-                  {row.orderNum}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.datePlaced}</StyledTableCell>
-                <StyledTableCell align="right">{row.reservationDate}</StyledTableCell>
-                <StyledTableCell align="right">{row.restaraunt}</StyledTableCell>
-                <StyledTableCell align="right">{row.party}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell><h3>Order #</h3></TableCell>
+                        <TableCell align="right"><h3>Date Placed</h3></TableCell>
+                        <TableCell align="right"><h3>Reservation Date</h3></TableCell>
+                        <TableCell align="right"><h3>Restaraunt</h3></TableCell>
+                        <TableCell align="right"><h3>Party Size</h3></TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map((row) => (
+                        <StyledTableRow
+                            key={row.orderNum}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        >
+                            <StyledTableCell component="th" scope="row">
+                                {row.orderNum}
+                            </StyledTableCell>
+                            <StyledTableCell align="right">{row.datePlaced}</StyledTableCell>
+                            <StyledTableCell align="right">{row.reservationDate}</StyledTableCell>
+                            <StyledTableCell align="right">{row.restaraunt}</StyledTableCell>
+                            <StyledTableCell align="right">{row.party}</StyledTableCell>
+                            </StyledTableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
     );
   }
