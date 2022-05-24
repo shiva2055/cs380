@@ -16,7 +16,6 @@ const StyledButton = withStyles({
     borderRadius: "20px",
     width: "250px",
     variant: "h6",
-
     boxSizing: "border-box",
     fontFamily: "Roboto",
     cursor: "pointer",

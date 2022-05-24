@@ -24,16 +24,16 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
 
-function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
-    return { orderNum, datePlaced, reservationDate, restaraunt, party };
+function createData(orderNum, datePlaced, reservationDate, reservationTime, restaraunt, party) {
+    return { orderNum, datePlaced, reservationDate, reservationTime, restaraunt, party };
   }
   
   const rows = [
-    createData('E1234', '05/23/2022', '05/30/2022', 'Olive Garden', 5),
-    createData('D1234', '05/01/2022', '05/15/2022', 'Outback Steakhouse', 2),
-    createData('C1234', '04/20/2022', '04/28/2022', 'The Melting Pot', 2),
-    createData('B1234', '03/15/2022', '03/25/2022', "Bob's Burger and Brew", 7),
-    createData('A1234', '01/07/2022', '01/10/2022', 'Applebees', 2),
+    createData('E1234', '05/23/2022', '05/30/2022', '7:00 PM','Olive Garden', 5),
+    createData('D1234', '05/01/2022', '05/15/2022', '5:00 PM','Outback Steakhouse', 2),
+    createData('C1234', '04/20/2022', '04/28/2022', '12:00 PM','The Melting Pot', 2),
+    createData('B1234', '03/15/2022', '03/25/2022', '3:00 PM', "Bob's Burger and Brew", 7),
+    createData('A1234', '01/07/2022', '01/10/2022', '6:00 PM', 'Applebees', 2),
   ];
   
   export default function BasicTable() {
@@ -45,6 +45,7 @@ function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
                         <TableCell><h3>Order #</h3></TableCell>
                         <TableCell align="right"><h3>Date Placed</h3></TableCell>
                         <TableCell align="right"><h3>Reservation Date</h3></TableCell>
+                        <TableCell align="right"><h3>Reservation Time</h3></TableCell>
                         <TableCell align="right"><h3>Restaraunt</h3></TableCell>
                         <TableCell align="right"><h3>Party Size</h3></TableCell>
                     </TableRow>
@@ -60,6 +61,7 @@ function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
                             </StyledTableCell>
                             <StyledTableCell align="right">{row.datePlaced}</StyledTableCell>
                             <StyledTableCell align="right">{row.reservationDate}</StyledTableCell>
+                            <StyledTableCell align="right">{row.reservationTime}</StyledTableCell>
                             <StyledTableCell align="right">{row.restaraunt}</StyledTableCell>
                             <StyledTableCell align="right">{row.party}</StyledTableCell>
                             </StyledTableRow>
