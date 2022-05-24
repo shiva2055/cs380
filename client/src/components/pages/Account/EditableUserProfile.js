@@ -72,6 +72,10 @@ export default function EditableUserProfile({
     return <>
       <Grid container spacing={2}>
         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+          <h3></h3>
+        </Grid>
+        
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
           <h3>Name:</h3>
         </Grid>
         
@@ -105,6 +109,10 @@ export default function EditableUserProfile({
       </Grid>
 
       <Grid container spacing={2}>
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+          <h3></h3>
+        </Grid>
+        
         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
           <h3>Email:</h3>
         </Grid>
@@ -143,6 +151,10 @@ export default function EditableUserProfile({
       </Grid>
 
       <Grid container spacing={2}>
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+          <h3></h3>
+        </Grid>
+        
         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}> 
           <h3>Address:</h3>
         </Grid>
@@ -203,6 +215,10 @@ export default function EditableUserProfile({
 
 
       <Grid container spacing={2}>
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+          <h3></h3>
+        </Grid>
+
         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
           <h3></h3>
         </Grid>
