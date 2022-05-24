@@ -1,8 +1,28 @@
 import React from "react";
 import '../../css/Home.css';
 import '../../css/Account.css';
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from "@mui/material";
+import {Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow, Paper, styled} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+  
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    '&:last-child td, &:last-child th': {
+      border: 0,
+    },
+  }));
 
 function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
     return { orderNum, datePlaced, reservationDate, restaraunt, party };
@@ -18,8 +38,8 @@ function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
   
   export default function BasicTable() {
     return (
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
               <TableCell><h3>Order #</h3></TableCell>
@@ -31,18 +51,18 @@ function createData(orderNum, datePlaced, reservationDate, restaraunt, party) {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow
+              <StyledTableRow
                 key={row.orderNum}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
+                <StyledTableCell component="th" scope="row">
                   {row.orderNum}
-                </TableCell>
-                <TableCell align="right">{row.datePlaced}</TableCell>
-                <TableCell align="right">{row.reservationDate}</TableCell>
-                <TableCell align="right">{row.restaraunt}</TableCell>
-                <TableCell align="right">{row.party}</TableCell>
-              </TableRow>
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.datePlaced}</StyledTableCell>
+                <StyledTableCell align="right">{row.reservationDate}</StyledTableCell>
+                <StyledTableCell align="right">{row.restaraunt}</StyledTableCell>
+                <StyledTableCell align="right">{row.party}</StyledTableCell>
+              </StyledTableRow>
             ))}
           </TableBody>
         </Table>
