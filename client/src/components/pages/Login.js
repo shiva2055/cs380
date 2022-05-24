@@ -21,9 +21,7 @@ const StyledButton = withStyles({
     fontFamily: "Roboto",
     cursor: "pointer",
     flexGrow: 1,
-    //  ['@media (max-width:780px)']: {
-    // paddingBottom: "1rem"    },
-    background: "#232e3a", //"#4f25f7",
+    background: "#232e3a", 
     color: "#fff",
     transform: "none",
     boxShadow: "6px 6px 0 0 #c7d8ed",
@@ -68,7 +66,6 @@ function Login() {
   
   function handleSumbmit() {
     const EMAIL = document.getElementById("email").value;
-    // alert(name);
     sessionStorage.setItem("EMAIL", EMAIL);
     console.log(sessionStorage.getItem("EMAIL"));
     history("/account");
@@ -76,28 +73,40 @@ function Login() {
   
   return (
     <div className="Home">
+      
       <br /> <br />
+      
       <h2 className={classes.wrapper}> Login</h2>
       <img className={classes.image} src={login_icon} alt="Login Image"></img>
+      
       <br />
+      
       <input
         className={classes.textfield}
         type="text"
         id="email"
         placeholder="Email"
       ></input>
+      
       <br />
+      
       <input
         className={classes.textfield}
         type="password"
         id="pass"
         placeholder="Password"
       ></input>
+      
       <br />
+      
       <StyledButton onClick={handleSumbmit}> Submit </StyledButton>
+      
       <br />
+      
       <h2 className={classes.wrapper}> OR </h2>
+      
       <br />
+      
       <StyledButton
         onClick={() => {
           history("/signup");
@@ -106,8 +115,8 @@ function Login() {
         {" "}
         Create An Account{" "}
       </StyledButton>
-      <br />
-      <br />
+      
+      <br /> <br />
     </div>
   );
 }

@@ -40,9 +40,6 @@ const style = makeStyles({
     marginRight: "auto",
     width: "8%",
     paddingTop: "1rem",
-    //  border: "10px solid #000",
-    // borderRadius: '50%',
-    // backgroundSize: 'cover'
   },
   wrapper: {
     width: "65%",
@@ -65,31 +62,41 @@ function Signup() {
 
   return (
     <div className="Home">
+      
       <br /> <br />
+      
       <h2 className={classes.wrapper}>Create An Account </h2>
       <img className={classes.image} src={account} alt="lado" />
+      
       <br />
+      
       <input
         className={classes.textfield}
         type="text"
         id="myText"
         placeholder="Email"
       ></input>
+      
       <br />
+      
       <input
         className={classes.textfield}
         type="password"
         id="pass"
         placeholder="Password"
       ></input>
+      
       <br />
+      
       <input
         className={classes.textfield}
         type="password"
         id="pass"
         placeholder="Confirm Password"
       ></input>
+      
       <br />
+      
       <StyledButton
         onClick={() => {
           history("/Account");
@@ -97,6 +104,7 @@ function Signup() {
       >
         Submit{" "}
       </StyledButton>
+      
       <br />
     </div>
   );
