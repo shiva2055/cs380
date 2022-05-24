@@ -164,8 +164,8 @@ export default function EditableUserProfile({
         <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
           <FormControl fullWidth sx={{ m: 1 }}>
             <TextField
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
+              labelId="select-filled-label"
+              id="select-filled"
               label="Unit"
               variant="filled"
               size="small"
@@ -203,39 +203,43 @@ export default function EditableUserProfile({
 
 
       <Grid container spacing={2}>
-        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}> 
+        <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
           <h3></h3>
         </Grid>
         
         <Grid item xs={2} sm={2} md={3} lg={3} xl={3}>
-          <TextField
-            id="filled"
-            label="City*" 
-            variant="filled" 
-            size="small"
-            type="text"
-            value={city}
-            onChange={e => setCity(e.target.value)}
-          />
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <TextField
+              id="filled"
+              label="City*" 
+              variant="filled" 
+              size="small"
+              type="text"
+              value={city}
+              onChange={e => setCity(e.target.value)}
+            />
+          </FormControl>
         </Grid>
 
         <Grid item xs={2} sm={2} md={2} lg={2} xl={2}> 
-          <TextField
-            id="filled-required"
-            label="Zip Code*" 
-            variant="filled" 
-            size="small"
-            type={Text}
-            value={zipCode}
-            onChange={e => setZipCode(e.target.value)}
-          />
+          <FormControl fullWidth sx={{ m: 1 }}>
+            <TextField
+              id="filled-required"
+              label="Zip Code*" 
+              variant="filled" 
+              size="small"
+              type={Text}
+              value={zipCode}
+              onChange={e => setZipCode(e.target.value)}
+            />
+          </FormControl>
         </Grid>
 
         <Grid item> 
-          <FormControl>
+          <FormControl fullWidth sx={{ m: 1 }}>
             <TextField
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
+              labelId="select-filled-label"
+              id="select-filled"
               label="State*"
               variant="filled"
               size="small"
