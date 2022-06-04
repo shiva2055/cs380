@@ -37,7 +37,8 @@ function Gridview(props) {
       "people_no" :party,
       "time":time,
       "date":value,
-      "customer_info":"Name"
+      "customer_info":"Name",
+      "table_no":-1
     }
     
     console.log(reservation);
@@ -136,7 +137,7 @@ function Gridview(props) {
             placeholder="Location, Resturant"
             label="Please input zip code or location, or Resturant"
           ></input>
-          <button className="btn--outline" onClick={{onSubmit, scroll}}>Next</button>{" "}
+          <button className="btn--outline" onClick={onSubmit}>Next</button>{" "}
         </div>
       </div>
       <div className={classes.map}>

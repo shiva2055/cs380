@@ -5,7 +5,7 @@ import Table2 from "../Tables/Table_2seats.js";
 import Table4 from "../Tables/Table_4seats.js";
 import Table6 from "../Tables/Table_6seats.js";
 import Table12 from "../Tables/Table_12seats.js";
-
+import axios from "axios";
 
 function TableSelect() {
 
@@ -16,12 +16,22 @@ function TableSelect() {
     var tableOccupied = {"1":true,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false};
     var times = {1:"1:00 PM", 1.5: "1:30 PM", 2: "2:00 PM", 2.5 : " 2:30 PM", 3: "3:00 PM", 3.5: "3:30 PM", 4: "4:00 PM", 4.5: "4:30 PM", 5: "5:00 PM", 5.5: "5:30 PM", 6: "6:00 PM", 6.5: "6:30 PM", 7: "7:00 PM", 7.5: "7:30 PM", 8: "8:00 PM", 8.5: "8:30 PM", 9: "9:00 PM", 9.5: "9:30 PM", 10: "10:00 PM"};
     var time = 3;
-    var Name = "Jay";
+    var reservationId = "629ac98d4fb4763db643dbef"
 
+
+    // here we add table number to reservation db
 
     function isOccupied(occupied) {
+       //displaying customer info 
+        const customerInfo = axios.get("http://localhost5000/reservations/" + reservationId)
+        .then((response) => {
+            console.log(response.data)
+        })
+
+        
+
         return (
-            occupied ? Name + " " + times[time] : ""
+            occupied ?  customerInfo.data : ""
         );
     }
 

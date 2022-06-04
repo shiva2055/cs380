@@ -14,12 +14,14 @@ router.route("/add").post((req, res) => {
     const reservation_date = req.body.reservation_date;
     const time = req.body.time;
     const customer_info = req.body.customer_info;
+    const table_no = req.body.table_no;
 
     const new_reservation = new Reservation({
         people_no,
         reservation_date,
         time,
         customer_info,
+        table_no
     })
 
     new_reservation.save().then(()=> res.json("Reservation added")).catch((err)=> res.status(400).json("Error: " + err));    
