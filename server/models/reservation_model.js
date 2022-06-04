@@ -9,14 +9,15 @@ const reservationDB = new mongoose.Schema(
         reservation_date: {
             type: Date,
             required: true,
+            default:Date.now,
         },
         time: {
             type: mongoose.Schema.Types.Decimal128,
             required: true,
         },
         customer_info: {
-            // receiving customer's info by objectId
-            type: mongoose.Schema.Types.ObjectId,
+            type: String,
+            unique:true,
             required: true,
         },
     },

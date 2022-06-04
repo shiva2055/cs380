@@ -30,8 +30,10 @@ const loginRouter = require("./routes/login");
 const reservationRouter = require("./routes/reservation");
 
 app.use("/customers", customerRouter);
+app.use("/reservations", reservationRouter);
 //app.use("/resturants", resturantRouter);
 //starts server
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });

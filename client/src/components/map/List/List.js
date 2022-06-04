@@ -14,6 +14,7 @@ import PlaceDetails from "./PlaceDetails/PlaceDetails";
 const List = ({ places }) => {
   const classes = useStyles();
 
+
   return (
     <div className={classes.container}>
       <Typography variant="h4">Resturants Near You</Typography>

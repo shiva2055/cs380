@@ -8,6 +8,8 @@ import Table12 from "../Tables/Table_12seats.js";
 
 
 function TableSelect() {
+
+
     var [tableSelected, setTable] = useState(false);
     var tables = ["1","2","3","4","5","6","7","8","9", "10"];
     var seats = {"1":2,"2":2,"3":4,"4":4,"5":4,"6":6,"7":6,"8":6,"9":12, "10":12};

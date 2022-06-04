@@ -37,6 +37,16 @@ router.route("/:id").delete((req, res) => {
     .then(()=> res.json("Reservation cancelled"))
     .catch((err) => res.status(400).json("Error: " + err));
 })
-  
+
+router.route("/update/:id").post((req, res)=>{
+    Reservation.findById(req.params.id)
+    .then(reservation=> {
+        reservation.customer_info = req.body.customer_info,
+        reservation.people_no = req.body.people_no,
+        reservation.reservation_date = req.body.reservation_date,
+        reservation.time = req.body.time
+    }).catch(err => res.status(400).json("Error" + err))
+})
 
 
+module.exports = router;

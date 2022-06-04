@@ -13,11 +13,13 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import TextField from "@mui/material/TextField";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Resturant from "../map/Resturant.js";
 import useStyles from "./style";
+import axios from "axios";
 
 function Gridview(props) {
+
   const task = ["Party", "Calender", "Time"];
   const { icon, title, btnTitle } = props;
   // show and hide functions
@@ -25,10 +27,27 @@ function Gridview(props) {
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
   //for calander
-  const [value, onChange] = useState(new Date());
-  const [party, setparty] = useState("2");
+  const [value, Change] = useState(new Date());
+  const [party, setparty] = useState("1");
   const [time, setTime] = useState("7");
   const classes = useStyles();
+
+  function onSubmit() {
+    const reservation = {
+      "people_no" :party,
+      "time":time,
+      "date":value,
+      "customer_info":"Name"
+    }
+    
+    console.log(reservation);
+
+    axios.post("http://localhost:5000/reservations/add", reservation)
+    .then(res => console.log(res.data))
+
+  }
+  
+
   return (
     <>
       <div className={classes.wrapper}>
@@ -80,7 +99,7 @@ function Gridview(props) {
           {show2 && (
             <div className={classes.drag_inside}>
               <InputLabel> Calendar</InputLabel>
-              <Calendar onChange={onChange} value={value} />
+              <Calendar onChange={Change} value={value} />
             </div>
           )}
           {show3 && (
@@ -117,7 +136,7 @@ function Gridview(props) {
             placeholder="Location, Resturant"
             label="Please input zip code or location, or Resturant"
           ></input>
-          <button className="btn--outline">Next</button>{" "}
+          <button className="btn--outline" onClick={{onSubmit, scroll}}>Next</button>{" "}
         </div>
       </div>
       <div className={classes.map}>
