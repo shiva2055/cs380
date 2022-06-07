@@ -29,8 +29,10 @@ router.route("/add").post((req, res) => {
 
 //getting reservation info by id
 router.route("/:id").get((req, res) => {
-    Reservation.findById(req.params.id).then((Reservation) => res.json(Reservation))
+   const info =  Reservation.findById(req.params.id).then((Reservation) => res.json(Reservation))
     .catch((err) => res.status(400).json("Error: " + err));
+
+    res.end(JSON.stringify(info));
 })
 
 //cancelling reservation by id 
@@ -40,6 +42,7 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 })
 
+//update reservation
 router.route("/update/:id").post((req, res)=>{
     Reservation.findById(req.params.id)
     .then(reservation=> {
@@ -47,6 +50,7 @@ router.route("/update/:id").post((req, res)=>{
         reservation.people_no = req.body.people_no,
         reservation.reservation_date = req.body.reservation_date,
         reservation.time = req.body.time
+        reservation.table_no = req.body.table_no
     }).catch(err => res.status(400).json("Error" + err))
 })
 

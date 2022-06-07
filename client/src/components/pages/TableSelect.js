@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect,useState} from "react";
 import "../css/TableSelect.css";
 import { link } from "react-router-dom";
 import Table2 from "../Tables/Table_2seats.js";
@@ -6,6 +6,7 @@ import Table4 from "../Tables/Table_4seats.js";
 import Table6 from "../Tables/Table_6seats.js";
 import Table12 from "../Tables/Table_12seats.js";
 import axios from "axios";
+import { ConstructionOutlined } from "@mui/icons-material";
 
 function TableSelect() {
 
@@ -13,26 +14,37 @@ function TableSelect() {
     var [tableSelected, setTable] = useState(false);
     var tables = ["1","2","3","4","5","6","7","8","9", "10"];
     var seats = {"1":2,"2":2,"3":4,"4":4,"5":4,"6":6,"7":6,"8":6,"9":12, "10":12};
-    var tableOccupied = {"1":true,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false};
+    var tableOccupied = {"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false};
     var times = {1:"1:00 PM", 1.5: "1:30 PM", 2: "2:00 PM", 2.5 : " 2:30 PM", 3: "3:00 PM", 3.5: "3:30 PM", 4: "4:00 PM", 4.5: "4:30 PM", 5: "5:00 PM", 5.5: "5:30 PM", 6: "6:00 PM", 6.5: "6:30 PM", 7: "7:00 PM", 7.5: "7:30 PM", 8: "8:00 PM", 8.5: "8:30 PM", 9: "9:00 PM", 9.5: "9:30 PM", 10: "10:00 PM"};
     var time = 3;
-    var reservationId = "629ac98d4fb4763db643dbef"
+    var reservationId = ["629ac98d4fb4763db643dbef", "", "", "", "", "", "", "", "", ""]
+    
+    useEffect(() => {
+        showItem();
+    }, []);
+
+    const [items, setItem] = useState([]);
+    const showItem = async() => {
+        const data = await fetch("http://localhost5000/reservations/" + reservationId);
+        const items = await data.json();
+        setItem(items);
+    }
 
 
     // here we add table number to reservation db
 
-    function isOccupied(occupied) {
-       //displaying customer info 
-        const customerInfo = axios.get("http://localhost5000/reservations/" + reservationId)
-        .then((response) => {
-            console.log(response.data)
-        })
 
-        
-
-        return (
-            occupied ?  customerInfo.data : ""
-        );
+    function updateUserInfo(table_no){
+        const info = axios.get("http://localhost5000/reservations/" + reservationId[table_no - 1])
+        const customer_info = {
+            "table_no":table_no,
+            "people_no":info.people_no,
+            "time":info.time,
+            "date":info.date,
+            "customer_info":info.customer_info
+        }
+        console.log(info);
+        axios.post("http://localhost5000/reservations/update/"+ reservationId[table_no - 1], customer_info).then(res => console.log(res.data))
     }
 
     return (
@@ -42,39 +54,39 @@ function TableSelect() {
          <section className="container--tables">
              <br/>
              <div className="row--1">
-                <button className= {tableOccupied[tables[0]] ? "btn--large--4seats--occupied" : "btn--large--4seats"} onClick={tableOccupied[0] ? ()=> setTable(tables[0]) : () => setTable(false)}>
+                <button className= {tableOccupied[tables[0]] ? "btn--large--4seats--occupied" : "btn--large--4seats"} onClick={tableOccupied[0] ? ()=> setTable(tables[0]) : () => setTable(tables[0])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[0]}</div>
                     <Table2/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[0]])}
+                        {isOccupied(tableOccupied[tables[0]],tables[0])}
                     </div>
                 </button>
             <   button className= {tableOccupied[tables[1]] ? "btn--large--4seats--occupied" : "btn--large--4seats"} onClick={()=> setTable(tables[1])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[1]}</div>
                     <Table2/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[1]])}
+                        {isOccupied(tableOccupied[tables[1]], tables[1])}
                     </div>
                 </button>
                 <button className= {tableOccupied[tables[2]] ? "btn--large--4seats--occupied" : "btn--large--4seats"} onClick={()=> setTable(tables[2])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[2]}</div>
                     <Table4/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[2]])}
+                        {isOccupied(tableOccupied[tables[2]], tables[2])}
                     </div>
                 </button>
                 <button className= {tableOccupied[tables[3]] ? "btn--large--4seats--occupied" : "btn--large--4seats"} onClick={()=> setTable(tables[3])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[3]}</div>
                     <Table4/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[3]])}
+                        {isOccupied(tableOccupied[tables[3]], tables[3])}
                     </div>
                 </button>
                 <button className= {tableOccupied[tables[4]] ? "btn--large--4seats--occupied" : "btn--large--4seats"} onClick={()=> setTable(tables[4])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[4]}</div>
                     <Table4/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[4]])}
+                        {isOccupied(tableOccupied[tables[4]], tables[4])}
                     </div>
                 </button>
              </div>
@@ -83,21 +95,21 @@ function TableSelect() {
                 <div style={{fontSize:"15px"}}>{"Table " + tables[5]}</div>
                     <Table6/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[5]])}
+                        {isOccupied(tableOccupied[tables[5]], tables[5])}
                     </div>
                 </button>
                 <button className= {tableOccupied[tables[6]] ? "btn--large--6seats--occupied" : "btn--large--6seats"} onClick={()=> setTable(tables[6])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[6]}</div>
                     <Table6/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[6]])}
+                        {isOccupied(tableOccupied[tables[6]], tables[6])}
                     </div>
                 </button>
                 <button className= {tableOccupied[tables[7]] ? "btn--large--6seats--occupied" : "btn--large--6seats"} onClick={()=> setTable(tables[7])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[7]}</div>
                     <Table6/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[7]])}
+                        {isOccupied(tableOccupied[tables[7]], tables[7])}
                     </div>
                 </button>
             </div>
@@ -106,19 +118,19 @@ function TableSelect() {
                 <div style={{fontSize:"15px"}}>{"Table " + tables[8]}</div>
                     <Table12/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[8]])}
+                        {isOccupied(tableOccupied[tables[8]], tables[8])}
                     </div>
                 </button>
                 <button className= {tableOccupied[tables[9]] ? "btn--large--12seats--occupied" : "btn--large--12seats"} onClick={()=> setTable(tables[9])}>
                 <div style={{fontSize:"15px"}}>{"Table " + tables[9]}</div>
                     <Table12/>
                     <div style={{fontSize:"10px"}}>
-                        {isOccupied(tableOccupied[tables[9]])}
+                        {isOccupied(tableOccupied[tables[9]], tables[9])}
                     </div>
                 </button>
             </div>
             <div style={{alignItems:"end"}}>
-                    <button disabled={!tableSelected} className="btn--outline">
+                    <button disabled={!tableSelected} className="btn--outline" onClick = {updateUserInfo(tables[tableSelected - 1])}>
                         {(tableSelected ? "Proceed" : "Please select the table")}
                     </button>
                     <div>{(tableSelected ? "table " + tableSelected + " selected" : " ")}</div>

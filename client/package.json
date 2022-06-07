@@ -52,5 +52,6 @@
   },
   "devDependencies": {
     "dts-css-modules-loader": "^1.2.4"
-  }
+  },
+  "proxy":"http://localhost5000/"
 }
